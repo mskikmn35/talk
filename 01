@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>システム障害対応訓練 トークスクリプト</title>
+<style>
+/* --- 全体スタイル --- */
+:root {
+--primary-color: #005A9C;
+--secondary-color: #F0F8FF;
+--accent-color: #E63946;
+--text-color: #333;
+--bg-color: #F8F9FA;
+--card-bg-color: #FFFFFF;
+--border-color: #DEE2E6;
+--speaker1-bg: #E3F2FD;
+--speaker2-bg: #FFF3E0;
+}
+Generated code
+body {
+        font-family: 'Helvetica Neue', 'Arial', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', sans-serif;
+        line-height: 1.8;
+        margin: 0;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 30px auto;
+        padding: 20px;
+    }
+    
+    header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    header h1 {
+        color: var(--primary-color);
+        margin: 0;
+    }
+
+    /* --- タブコンポーネント --- */
+    .tab-container {
+        background-color: var(--card-bg-color);
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        border: 1px solid var(--border-color);
+        overflow: hidden;
+    }
+
+    .tab-nav {
+        display: flex;
+        background-color: var(--secondary-color);
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .tab-btn {
+        flex-grow: 1;
+        padding: 15px 10px;
+        cursor: pointer;
+        border: none;
+        background-color: transparent;
+        font-size: 1em;
+        font-weight: bold;
+        color: var(--primary-color);
+        opacity: 0.7;
+        transition: all 0.3s ease;
+        border-bottom: 3px solid transparent;
+    }
+
+    .tab-btn:hover {
+        opacity: 1;
+        background-color: rgba(0, 90, 156, 0.05);
+    }
+
+    .tab-btn.active {
+        opacity: 1;
+        color: var(--accent-color);
+        border-bottom-color: var(--accent-color);
+    }
+
+    .tab-content {
+        padding: 30px;
+    }
+
+    .tab-panel {
+        display: none;
+        animation: fadeIn 0.5s;
+    }
+
+    .tab-panel.active {
+        display: block;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    /* --- 対話スクリプトスタイル --- */
+    .dialogue-turn {
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .speaker-name {
+        font-weight: bold;
+        margin-bottom: 8px;
+        padding: 5px 12px;
+        border-radius: 4px;
+        align-self: flex-start;
+    }
+
+    .speech {
+        padding: 15px;
+        border-radius: 8px;
+    }
+    
+    /* スピーカーごとのスタイル */
+    .speaker-1 .speaker-name {
+        background-color: var(--primary-color);
+        color: white;
+    }
+    .speaker-1 .speech {
+        background-color: var(--speaker1-bg);
+        border: 1px solid #BBDEFB;
+    }
+
+    .speaker-2 .speaker-name {
+        background-color: #FFA000;
+        color: white;
+    }
+    .speaker-2 .speech {
+        background-color: var(--speaker2-bg);
+        border: 1px solid #FFE0B2;
+    }
+
+    /* レスポンシブ対応 */
+    @media (max-width: 768px) {
+        .container {
+            margin: 15px auto;
+            padding: 10px;
+        }
+        .tab-nav {
+            flex-direction: column;
+        }
+        .tab-btn {
+            border-bottom: 1px solid var(--border-color);
+        }
+        .tab-btn.active {
+            border-bottom: 3px solid var(--accent-color);
+        }
+        .tab-content {
+            padding: 20px 15px;
+        }
+    }
+
+</style>
+Use code with caution.
+</head>
+<body>
+Generated code
+<div class="container">
+    <header>
+        <h1>システム障害対応訓練 トークスクリプト</h1>
+    </header>
+
+    <div class="tab-container">
+        <div class="tab-nav">
+            <button class="tab-btn active" data-tab="tab1">オリエンテーション</button>
+            <button class="tab-btn" data-tab="tab2">問題1</button>
+            <button class="tab-btn" data-tab="tab3">問題2</button>
+            <button class="tab-btn" data-tab="tab4">問題3</button>
+        </div>
+
+        <div class="tab-content">
+            <!-- オリエンテーション -->
+            <div id="tab1" class="tab-panel active">
+                <div class="dialogue-turn speaker-1">
+                    <div class="speaker-name">佐藤 (Speaker 1)</div>
+                    <div class="speech">
+                        皆さん、こんにちは。本日はシステム障害対応訓練へご参加いただき、誠にありがとうございます。進行役を務めます、佐藤です。本日はどうぞよろしくお願いいたします。
+                    </div>
+                </div>
+                <div class="dialogue-turn speaker-2">
+                    <div class="speaker-name">鈴木 (Speaker 2)</div>
+                    <div class="speech">
+                        同じく進行役の鈴木です。よろしくお願いします。さて、今日の訓練は、私たちが日々管理しているOAシステムで、万が一、深刻な障害が発生した、というシナリオで進めていきます。
+                    </div>
+                </div>
+                <div class="dialogue-turn speaker-1">
+                    <div class="speaker-name">佐藤 (Speaker 1)</div>
+                    <div class="speech">
+                        なぜ、今この訓練を行うのか。それは、私たちのシステムが会社のビジネス活動にとって、なくてはならない基盤だからです。障害は、残念ながらいつ、どんな形で起こるかわかりません。その「もしも」の時に、私たちが迅速かつ的確に対応できるかどうかで、ビジネスへの影響を最小限に抑えられるかが決まります。
+                    </div>
+                </div>
+                <div class="dialogue-turn speaker-2">
+                    <div class="speaker-name">鈴木 (Speaker 2)</div>
+                    <div class="speech">
+                        その通りですね、佐藤さん。障害対応というと、技術的なスキルばかりが注目されがちですが、実はそれと同じくらい、「誰に、何を、どのように伝えるか」というコミュニケーションが重要になります。今回の訓練では、その両方のスキルをバランスよく高めていくことを目指します。
+                    </div>
+                </div>
+                <div class="dialogue-turn speaker-1">
+                    <div class="speaker-name">佐藤 (Speaker 1)</div>
+                    <div class="speech">
+                        はい。具体的には、本日の訓練を大きく３つのフェーズに分けて進めます。最初のフェーズは「障害の覚知と初動対応」。次に「原因の切り分けと影響範囲の特定」。そして最後に「恒久対策と再発防止策の策定」です。それぞれのフェーズで、個人ワークやグループワークを通じて対応を検討し、発表していただきます。
+                    </div>
+                </div>
+                 <div class="dialogue-turn speaker-2">
+                    <div class="speaker-name">鈴木 (Speaker 2)</div>
+                    <div class="speech">
+                         大切なのは、ワークの後の発表とフィードバックの時間ですね。自分では思いつかなかった視点や、他の人の優れた考え方に触れる絶好の機会です。ぜひ、お互いの意見に真剣に耳を傾け、「自分ならどうするか」を常に考えながら参加してください。
+                    </div>
+                </div>
+                 <div class="dialogue-turn speaker-1">
+                    <div class="speaker-name">佐藤 (Speaker 1)</div>
+                    <div class="speech">
+                         訓練に臨む上での心構えですが、どうかリラックスしてください。特に、100点満点の完璧な答えを出す必要は全くありません。むしろ、「もし本当にこの状況に自分がいたら？」という強い当事者意識を持って、悩み、考え、議論するプロセスそのものを大切にしてください。中途入社の方も、遠慮なくご自身の経験に基づいた意見を発信していただけると、チームにとって大きなプラスになります。
+                    </div>
+                </div>
+                 <div class="dialogue-turn speaker-2">
+                    <div class="speaker-name">鈴木 (Speaker 2)</div>
+                    <div class="speech">
+                         おっしゃる通りです、佐藤さん。そして、訓練中のルールを一つだけお伝えします。今回のワークでは、皆さんの「考える力」そのものを鍛えることに重点を置きたいと考えています。そのため、参照できるのは、お手元にある『障害対応ハンドリング手順』のみとさせていただきます。申し訳ありませんが、インターネット検索や生成AIの利用は、今回はご遠慮ください。
+                    </div>
+                </div>
+                <div class="dialogue-turn speaker-1">
+                    <div class="speaker-name">佐藤 (Speaker 1)</div>
+                    <div class="speech">
+                        この訓練の最終的なゴールは、明日からの皆さんの業務に活かせる「気づき」を一つでも多く持ち帰っていただくことです。訓練で学んだことをきっかけに、自分たちのチームの障害対応プロセスをより良くしていく、そんな未来に繋げていきましょう。
+                    </div>
+                </div>
+                <div class="dialogue-turn speaker-2">
+                    <div class="speaker-name">鈴木 (Speaker 2)</div>
+                    <div class="speech">
+                        それでは、準備はよろしいでしょうか。これより、システム障害対応訓練を開始します。皆さんの積極的なご参加を心から期待しています！
+                    </div>
+                </div>
+            </div>
+
+            <!-- 問題1 -->
+            <div id="tab2" class="tab-panel">
+                <div class="dialogue-turn speaker-2">
+                    <div class="speaker-name">鈴木 (Speaker 2)</div>
+                    <div class="speech">
+                        さて、オリエンテーションは以上となります。早速ですが、ここから最初のワークショップに移りたいと思います。最初のテーマは「問題1：障害の覚知と初動対応」です。
+                    </div>
+                </div>
+                <div class="dialogue-turn speaker-1">
+                    <div class="speaker-name">佐藤 (Speaker 1)</div>
+                    <div class="speech">
+                         それでは、問題の状況を説明します。皆さん、自分が今、月曜日の朝9時半を迎えたIT部門の担当者だと想像してみてください。<br><br>（少し間を置いて）<br><br>週明けで最も業務が集中する、まさにその時間帯です。ヘルプデスクの電話が鳴り止みません。「全社で利用しているファイルサーバーにアクセスできない」「昨日まで使えたフォルダが開けない」といった問い合わせが、様々な部署から殺到し始めました。同時に、あなたのチームのチャットチャンネルにも、同様の報告が次々と投稿されています。
+                    </div>
+                </div>
+                 <div class="dialogue-turn speaker-2">
+                    <div class="speaker-name">鈴木 (Speaker 2)</div>
+                    <div class="speech">
+                        はい、ありがとうございます、佐藤さん。まさに障害発生の瞬間、一番混乱する場面ですね。この状況における課題、つまり難しさを整理すると、主に３つあります。<br>
+                        一つ目は、障害の原因が全くわからないこと。ネットワークなのか、サーバーなのか、あるいはアプリケーションの問題なのか。<br>
+                        二つ目は、問い合わせが殺到し、ヘルプデスクがパンク寸前であること。<br>
+                        そして三つ目は、全社的な業務影響が大きく、ユーザーが混乱している、ということです。
+                    </div>
+                </div>
+                <div class="dialogue-turn speaker-1">
+                    <div class="speaker-name">佐藤 (Speaker 1)</div>
+                    <div class="speech">
+                        この困難な状況を踏まえて、皆さんに考えていただくお題はこちらです。<br>
+                        <strong>「障害を覚知してから、最初の30分間。あなたのチームは、何を、どのような優先順位で行動しますか？具体的なアクションプランを発表してください。」</strong>
+                    </div>
+                </div>
+                 <div class="dialogue-turn speaker-2">
+                    <div class="speaker-name">鈴木 (Speaker 2)</div>
+                    <div class="speech">
+                        ポイントは「優先順位」です。限られた時間と人数の中で、何から手をつけるべきか。技術的な調査と、ユーザーへのコミュニケーション、どちらを優先するのか。あるいは同時に進めるのか。あなたの考えを整理してみてください。
+                    </div>
+                </div>
+                <div class="dialogue-turn speaker-1">
+                    <div class="speaker-name">佐藤 (Speaker 1)</div>
+                    <div class="speech">
+                       今回のワークは個人ワークです。時間は10分間とします。お手元の資料にメモを取りながら、自分なりのアクションプランを組み立ててください。このワークの正解は一つではありません。早く終わった人は残り時間を使って複数のアクションプランを考えてみてください。
+                    </div>
+                </div>
+                 <div class="dialogue-turn speaker-2">
+                    <div class="speaker-name">鈴木 (Speaker 2)</div>
+                    <div class="speech">
+                       それでは、よろしいでしょうか。問題1、個人ワークを開始してください！
+                    </div>
+                </div>
+            </div>
+
+            <!-- 問題2 -->
+            <div id="tab3" class="tab-panel">
+                <div class="dialogue-turn speaker-1">
+                    <div class="speaker-name">佐藤 (Speaker 1)</div>
+                    <div class="speech">
+                        皆さん、問題1のワークと発表、お疲れ様でした。初動対応における様々な視点からの意見、大変参考になりましたね。それでは、休憩をはさまずに、続いて問題2に進みたいと思います。
+                    </div>
+                </div>
+                <div class="dialogue-turn speaker-2">
+                    <div class="speaker-name">鈴木 (Speaker 2)</div>
+                    <div class="speech">
+                         はい。ここからは、先ほどの状況から30分が経過した世界線です。皆さんのチームの迅速な調査により、いくつか新しい情報が判明しました。佐藤さん、追加情報の共有をお願いします。
+                    </div>
+                </div>
+                <div class="dialogue-turn speaker-1">
+                    <div class="speaker-name">佐藤 (Speaker 1)</div>
+                    <div class="speech">
+                        （少し神妙なトーンで）<br>
+                        はい。チームの調査により、以下の4つのことが判明しました。<br>
+                        第一に、障害が起きているファイルサーバー自体へのPingは通り、リモート接続も可能です。<br>
+                        第二に、サーバーのログを詳しく調べたところ、ディスクのI/Oエラー、つまり読み書きのエラーが大量に記録されていました。<br>
+                        第三に、ストレージの管理画面を確認すると、複数のディスクに赤色のアラートランプが点灯しています。<br>
+                        そして最後に、これらの状況から、物理的なディスク障害の可能性が極めて高く、復旧にはデータセンターでの部品交換が必要で、<strong>最低でも4時間以上かかる見込み</strong>であることがわかりました。
+                    </div>
+                </div>
+                <div class="dialogue-turn speaker-2">
+                    <div class="speaker-name">鈴木 (Speaker 2)</div>
+                    <div class="speech">
+                        ありがとうございます。状況が大きく動きましたね。原因が特定できた一方で、復旧までに長時間を要するという、新たな課題に直面したわけです。この状況での難しさを整理しましょう。<br>
+                        まず、業務停止時間が長引くことが確実になりました。<br>
+                        次に、経営層への正確な状況報告と、全社員への今後の見通しの説明が急務です。<br>
+                        そして、復旧を待つ間の代替手段を検討する必要も出てきました。
+                    </div>
+                </div>
+                <div class="dialogue-turn speaker-1">
+                    <div class="speaker-name">佐藤 (Speaker 1)</div>
+                    <div class="speech">
+                         この深刻な状況を受けて、皆さんに考えていただく次のお題はこちらです。<br>
+                        <strong>「この状況を受け、あなたのチームは次にとるべきアクションは何ですか？特に『誰に』『何を』伝えるべきか、コミュニケーション計画を含めて発表してください。」</strong>
+                    </div>
+                </div>
+                <div class="dialogue-turn speaker-2">
+                    <div class="speaker-name">鈴木 (Speaker 2)</div>
+                    <div class="speech">
+                        今回のポイントは、まさに「コミュニケーション計画」です。先ほどとは状況が変わり、原因と復旧見込み時間という具体的な情報が手に入りました。この情報を、例えば経営層に伝える場合と、一般の社員に伝える場合とで、内容や伝え方は同じで良いでしょうか？そのあたりを重点的に考えてみてください。
+                    </div>
+                </div>
+                 <div class="dialogue-turn speaker-1">
+                    <div class="speaker-name">佐藤 (Speaker 1)</div>
+                    <div class="speech">
+                       今回も個人ワークで、時間は10分間です。先ほどの初動対応計画に続く、次の30分間のアクションプランを組み立ててください。問題1と同様に、早く終わった人は残り時間を使って複数のアクションプランを考えてみてください。
+                    </div>
+                </div>
+                 <div class="dialogue-turn speaker-2">
+                    <div class="speaker-name">鈴木 (Speaker 2)</div>
+                    <div class="speech">
+                       それでは、準備はよろしいでしょうか。問題2、個人ワークを開始してください！
+                    </div>
+                </div>
+            </div>
+
+            <!-- 問題3 -->
+            <div id="tab4" class="tab-panel">
+                 <div class="dialogue-turn speaker-2">
+                    <div class="speaker-name">鈴木 (Speaker 2)</div>
+                    <div class="speech">
+                        皆さん、問題2のワーク、そして発表お疲れ様でした。緊迫した状況の中での的確なコミュニケーション計画、非常に勉強になりました。さて、いよいよこれが最後のワークショップとなります。
+                    </div>
+                </div>
+                <div class="dialogue-turn speaker-1">
+                    <div class="speaker-name">佐藤 (Speaker 1)</div>
+                    <div class="speech">
+                        はい。時間はさらに進み、障害発生から5時間が経過しました。皆さんのチームの懸命な対応の結果、状況は次のフェーズへと移ります。それでは、現在の状況を説明します。<br><br>
+                        （少し落ち着いた、しかし重みのあるトーンで）<br><br>
+                        データセンターでのディスク交換とデータのリストア作業は無事に完了し、ファイルサーバーは正常に復旧しました。全社的な業務も、ようやく再開できる状態になりました。しかし、安堵したのも束の間、皆さんの上司であるIT部門長のもとに、営業担当役員から厳しい内容の連絡が入ります。<br>
+                        「半日近く業務が止まったことによる損害は、決して小さくない。二度とこのようなことがないように、具体的な対策を経営会議で報告してほしい」
+                    </div>
+                </div>
+                <div class="dialogue-turn speaker-2">
+                    <div class="speaker-name">鈴木 (Speaker 2)</div>
+                    <div class="speech">
+                        ありがとうございます、佐藤さん。障害は復旧しましたが、本当の戦いはここからかもしれませんね。この状況における課題、つまり次に乗り越えるべき壁を整理します。<br>
+                        一つは、今回の直接的な原因である「ディスクの故障」だけでなく、「なぜ故障がここまで大きな影響を与えたのか」という根本原因を分析する必要があること。<br>
+                        そしてもう一つは、技術的な対策に加えて、業務への影響を最小限に抑えるための仕組み、いわゆる再発防止策や業務改善策も求められている、ということです。
+                    </div>
+                </div>
+                <div class="dialogue-turn speaker-1">
+                    <div class="speaker-name">佐藤 (Speaker 1)</div>
+                    <div class="speech">
+                         この責任重大な局面で、皆さんに考えていただく最後のお題はこちらです。<br>
+                        <strong>「今回の障害を受けて、あなたのチームで有効に機能するための再発防止策や業務改善策をどのように立案し、経営層に提案しますか？『技術』『プロセス』『投資』の3つの観点から、具体的なアクションプランを発表してください。」</strong>
+                    </div>
+                </div>
+                 <div class="dialogue-turn speaker-2">
+                    <div class="speaker-name">鈴木 (Speaker 2)</div>
+                    <div class="speech">
+                        今回のポイントは、単なる対策のリストアップではありません。「有効に機能する」という部分が重要です。そして、特に注目してほしいのが「投資」の観点です。「サーバーを新しくしたい」とだけ伝えるのと、「今回の障害による損失額はこれくらいでした。この金額を投資すれば、このリスクをこれだけ低減できます」と説明するのでは、経営層の判断は大きく変わるはずです。このビジネス視点をぜひ意識してください。
+                    </div>
+                </div>
+                 <div class="dialogue-turn speaker-1">
+                    <div class="speaker-name">佐藤 (Speaker 1)</div>
+                    <div class="speech">
+                        今回は最後のワークとして、<strong>グループワーク</strong>で実施します。時間は<strong>20分間</strong>です。これまでの個人ワークで考えたことを土台に、グループ内で活発に議論を交わし、経営層を納得させられるような、具体的で説得力のある提案を練り上げてください。
+                    </div>
+                </div>
+                <div class="dialogue-turn speaker-2">
+                    <div class="speaker-name">鈴木 (Speaker 2)</div>
+                    <div class="speech">
+                        それでは、指定されたグループに分かれてください。準備はよろしいでしょうか。問題3、グループワークを開始してください！
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const tabs = document.querySelectorAll('.tab-btn');
+        const panels = document.querySelectorAll('.tab-panel');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // すべてのタブとパネルからactiveクラスを削除
+                tabs.forEach(t => t.classList.remove('active'));
+                panels.forEach(p => p.classList.remove('active'));
+
+                // クリックされたタブと対応するパネルにactiveクラスを追加
+                tab.classList.add('active');
+                const targetPanelId = tab.getAttribute('data-tab');
+                document.getElementById(targetPanelId).classList.add('active');
+            });
+        });
+    });
+</script>
+Use code with caution.
+</body>
+</html>
